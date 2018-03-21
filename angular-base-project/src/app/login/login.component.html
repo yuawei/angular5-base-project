@@ -1,0 +1,29 @@
+<div id="login-samples" class="login-container login-page">
+    <form name="loginForm" role="form" (ngSubmit)="onSubmit($event)" [formGroup]="loginForm" class="login-form col-xs-1,col-sm-4" novalidate>
+        <ul class="title-section">
+            <li class="pwc-logo"><img src="../../assets/images/logo.png"></li>
+            <li class="app-title title">Change Navigator</li>
+        </ul>
+        <div class="title-bottom-line"></div>
+        <div class="login-to-your-acount contentheader">Login to your account</div>
+        <div class="recovery-notes hidden">Enter the email address for your account and we'll send you instructions to reset your password.</div>
+        <fieldset class="fieldset login-sample-fieldset">
+            <label class="form-label sample-guid-label">Username</label>
+            <input type="text" class="text-input sample-guid-input" formControlName="guid">
+            <label class="form-label sample-password-label">Password</label>
+            <input type="password" class="text-input sample-password-input" formControlName="password">
+            <span class="form-feedback" *ngIf="formSubmitted && loginForm.invalid && !loginForm.value.guid && !loginForm.value.passowrd">Please provide an username and password.</span>
+            <span class="form-feedback" *ngIf="formSubmitted && loginForm.dirty && loginForm.invalid && !loginForm.value.guid && loginForm.value.passowrd">Please enter an username.</span>
+            <span class="form-feedback" *ngIf="formSubmitted && loginForm.dirty && loginForm.invalid && loginForm.value.guid && !loginForm.value.password">Please enter a password.</span>
+            <div class="form-feedback" *ngIf="formSubmitted && loginForm.dirty && loginForm.value.guid && loginForm.value.password && errorMessage !== ''">{{ errorMessage }}</div>
+        </fieldset>
+        <input type="checkbox" class="checkbox remember-me-checkbox" id="check_1" value="check_1" name="checkboxes">
+        <label for="check_1">Remember me</label>
+        <button id="sample-login-btn" type="submit" analytics-on="click" analytics-event="Log in" analytics-category="Custom Button" analytics-label="Main Menu" class="button button-wide">Log in</button>
+        <a class="cursor-pointer forgot-password forgot-password-link " analytics-on="click" analytics-event="Reset Password" analytics-category="Custom Buttons">Forgot password?</a>
+        <button class="button button-wide hidden reset-pwd-btn" analytics-on="click" analytics-event="Get Temporary Password" analytics-category="Action Buttons">Reset password</button>
+        <div class="forgot-password hidden cancel-btn-wrapper">
+            <span analytics-on="click" analytics-event="Cancel Resetting Password" analytics-category="Custom Buttons">Cancel</span>
+        </div>
+    </form>
+</div>
